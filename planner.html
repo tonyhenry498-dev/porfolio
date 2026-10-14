@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Planner | Student Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="logo">Your Name</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Academic Planner</h1>
+    <p>Add your assignments, study sessions and deadlines. Tasks are saved in your browser.</p>
+
+    <section class="card">
+      <form id="taskForm" class="planner-form" novalidate>
+        <input type="text" id="taskInput" placeholder="e.g. Submit COS 106 term project" aria-label="Task description">
+        <input type="date" id="dateInput" aria-label="Due date">
+        <button type="submit" class="btn">Add Task</button>
+      </form>
+      <span class="error" id="taskError" role="alert"></span>
+
+      <div class="task-stats">
+        <span>Total: <span id="totalCount">0</span></span>
+        <span>Completed: <span id="doneCount">0</span></span>
+        <span>Pending: <span id="pendingCount">0</span></span>
+      </div>
+
+      <ul class="task-list" id="taskList"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Your Name. Built with HTML, CSS and JavaScript.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

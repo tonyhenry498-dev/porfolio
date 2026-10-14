@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Student Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="logo">Your Name</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>My Projects</h1>
+    <p>A selection of projects I have worked on. Replace the links with your real repositories and live demos.</p>
+
+    <section class="grid">
+      <article class="card project-card">
+        <img src="images/project1.svg" alt="Screenshot of the Calculator App project">
+        <div class="body">
+          <h3>Calculator App</h3>
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          <p>A responsive calculator that handles basic arithmetic, keyboard input and a clear/delete function.</p>
+          <a href="https://github.com/your-username/calculator-app" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <img src="images/project2.svg" alt="Screenshot of the Weather Dashboard project">
+        <div class="body">
+          <h3>Weather Dashboard</h3>
+          <span class="tag">JavaScript</span><span class="tag">API</span><span class="tag">CSS Grid</span>
+          <p>Shows current weather and a five-day forecast for any city using a public weather API.</p>
+          <a href="https://github.com/your-username/weather-dashboard" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <img src="images/project3.svg" alt="Screenshot of the Student Result Portal project">
+        <div class="body">
+          <h3>Student Result Portal</h3>
+          <span class="tag">HTML</span><span class="tag">Forms</span><span class="tag">Tables</span>
+          <p>A mock result-checking portal with a login form and a results table that calculates GPA.</p>
+          <a href="https://github.com/your-username/result-portal" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:1.5rem">
+      <h2>Project Summary</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Project</th><th>Technologies</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Calculator App</td><td>HTML, CSS, JS</td><td>Completed</td></tr>
+            <tr><td>Weather Dashboard</td><td>JS, REST API</td><td>Completed</td></tr>
+            <tr><td>Student Result Portal</td><td>HTML, Forms, Tables</td><td>In progress</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Your Name. Built with HTML, CSS and JavaScript.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal academic portfolio of a university student.">
+  <title>Home | Student Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="logo">Your Name</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p id="greeting" class="tagline">Welcome!</p>
+        <h1>Hi, I'm Your Name</h1>
+        <p class="tagline">Computer Science Student &bull; Aspiring Web Developer</p>
+        <p>
+          Welcome to my academic portfolio. Here you can learn about my background,
+          explore the projects I have built, and use my simple academic planner to stay organised.
+        </p>
+        <a href="projects.html" class="btn">View My Projects</a>
+        <a href="contact.html" class="btn secondary">Contact Me</a>
+      </div>
+      <img src="images/profile.svg" alt="Photograph of Your Name">
+    </section>
+
+    <section class="card">
+      <h2>Brief Biography</h2>
+      <p>
+        I am a 200-level Computer Science student passionate about building useful,
+        accessible technology. I enjoy solving problems with code and learning how
+        the web works, from the structure of HTML to the logic of JavaScript.
+      </p>
+      <p>
+        Outside the classroom I take part in coding clubs, work on personal projects,
+        and look for opportunities to grow as a developer. Replace this text with your own story.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>About Me</h3>
+        <p>My education, skills and interests.</p>
+        <a href="about.html">Read more &rarr;</a>
+      </article>
+      <article class="card">
+        <h3>Projects</h3>
+        <p>A selection of things I have built.</p>
+        <a href="projects.html">See projects &rarr;</a>
+      </article>
+      <article class="card">
+        <h3>Academic Planner</h3>
+        <p>Track assignments and deadlines.</p>
+        <a href="planner.html">Open planner &rarr;</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Your Name. Built with HTML, CSS and JavaScript.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

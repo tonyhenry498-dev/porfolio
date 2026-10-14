@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Student Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="logo">Your Name</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About Me</h1>
+
+    <section class="card">
+      <h2>Educational Background</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="error" style="text-align:left;color:var(--muted)">My academic history</caption>
+          <thead>
+            <tr><th>Institution</th><th>Qualification</th><th>Year</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Your University</td><td>B.Sc. Computer Science (in progress)</td><td>2024 &ndash; Present</td></tr>
+            <tr><td>Your Secondary School</td><td>Senior Secondary School Certificate</td><td>2018 &ndash; 2024</td></tr>
+            <tr><td>Your Primary School</td><td>First School Leaving Certificate</td><td>2012 &ndash; 2018</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Career Aspirations</h2>
+      <p>
+        I aspire to become a full-stack software engineer who builds solutions
+        for real problems in education, health and small businesses. In the short term,
+        I want to complete internships and contribute to open-source projects.
+      </p>
+      <ol class="styled">
+        <li>Master front-end and back-end web development</li>
+        <li>Earn an industry certification in cloud or web technologies</li>
+        <li>Secure an internship before graduation</li>
+        <li>Build and launch my own product</li>
+      </ol>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Technical Skills</h2>
+        <div class="skill">
+          <strong>HTML5</strong>
+          <div class="skill-bar"><span style="width:90%"></span></div>
+        </div>
+        <div class="skill">
+          <strong>CSS3</strong>
+          <div class="skill-bar"><span style="width:80%"></span></div>
+        </div>
+        <div class="skill">
+          <strong>JavaScript</strong>
+          <div class="skill-bar"><span style="width:70%"></span></div>
+        </div>
+        <div class="skill">
+          <strong>Git &amp; GitHub</strong>
+          <div class="skill-bar"><span style="width:65%"></span></div>
+        </div>
+        <div class="skill">
+          <strong>Python</strong>
+          <div class="skill-bar"><span style="width:60%"></span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Hobbies &amp; Interests</h2>
+        <ul class="styled">
+          <li>Coding side projects</li>
+          <li>Reading tech blogs and books</li>
+          <li>Playing football</li>
+          <li>Listening to music</li>
+          <li>Volunteering and mentoring juniors</li>
+        </ul>
+        <h3>Listen: my focus playlist</h3>
+        <audio controls preload="none">
+          <source src="media/sample.wav" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Introduce Myself (Video)</h2>
+      <video controls preload="metadata" poster="images/profile.svg">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p style="margin-top:.6rem;color:var(--muted)">Placeholder video. Replace the source with your own introduction clip (e.g. <code>media/intro.mp4</code>).</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Your Name. Built with HTML, CSS and JavaScript.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
