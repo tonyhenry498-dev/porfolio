@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Student Portfolio</title>
+  <title>Contact | Agbeble Tony</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav-bar" aria-label="Main navigation">
-      <a href="index.html" class="logo">Your Name</a>
+      <a href="index.html" class="logo">Agbeble Tony</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
@@ -21,39 +25,44 @@
     </nav>
   </header>
 
-  <main>
-    <h1>Contact Me</h1>
+  <main id="main" class="wrap">
+    <div class="page-head">
+      <h1>Contact me</h1>
+      <p>Have a project, internship or collaboration in mind? Send a message.</p>
+    </div>
+
     <div class="grid">
       <section class="card">
-        <h2>Send a Message</h2>
+        <h2>Send a message</h2>
         <form id="contactForm" novalidate>
           <div class="field">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name">
             <span class="error" id="nameError" role="alert"></span>
           </div>
           <div class="field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="name@example.com">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="email">
             <span class="error" id="emailError" role="alert"></span>
           </div>
           <div class="field">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="08012345678">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="08012345678" autocomplete="tel">
             <span class="error" id="phoneError" role="alert"></span>
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Type your message here..."></textarea>
+            <textarea id="message" name="message" placeholder="Type your message here..." maxlength="500"></textarea>
+            <div class="count"><span id="msgCount">0</span>/500</div>
             <span class="error" id="messageError" role="alert"></span>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn">Send message</button>
           <div class="form-success" id="formSuccess" role="status"></div>
         </form>
       </section>
 
       <aside class="card">
-        <h2>Other Ways to Reach Me</h2>
+        <h2>Other ways to reach me</h2>
         <ul class="styled">
           <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
           <li>GitHub: <a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username</a></li>
@@ -64,7 +73,10 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year">2026</span> Your Name. Built with HTML, CSS and JavaScript.</p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Agbeble Tony. Built with HTML, CSS and JavaScript.</p>
+      <p><a href="projects.html">See my projects</a></p>
+    </div>
   </footer>
   <script src="js/main.js"></script>
   <script src="js/contact.js"></script>

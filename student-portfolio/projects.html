@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Agbeble Tony</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="logo">Agbeble Tony</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-head">
+      <h1>My projects</h1>
+      <p>Tools for safety, health, food and childcare in Nigeria. Replace the GitHub links with your real repositories.</p>
+    </div>
+
+    <div class="chips" role="group" aria-label="Filter projects">
+      <button class="chip" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="safety" aria-pressed="false">Safety</button>
+      <button class="chip" data-filter="health" aria-pressed="false">Health</button>
+      <button class="chip" data-filter="community" aria-pressed="false">Community</button>
+    </div>
+
+    <section class="grid" id="projectGrid">
+      <article class="card project-card" data-tags="safety">
+        <div class="bar"></div>
+        <div class="body">
+          <h3>SafeWalk Campus</h3>
+          <p><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Real-time</span></p>
+          <p>A web-based emergency alert and location-sharing system that helps students on Nigerian campuses reach security quickly.</p>
+          <a href="https://github.com/your-username/safewalk-campus" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card project-card" data-tags="health">
+        <div class="bar"></div>
+        <div class="body">
+          <h3>MamaCheck</h3>
+          <p><span class="tag">SMS</span><span class="tag">Monitoring</span></p>
+          <p>A maternal health platform that checks in with mothers by SMS, so care does not depend on a smartphone or data plan.</p>
+          <a href="https://github.com/your-username/mamacheck" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card project-card" data-tags="community">
+        <div class="bar"></div>
+        <div class="body">
+          <h3>MealBridge</h3>
+          <p><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Modular monolith</span></p>
+          <p>The backend for a community-driven food delivery service, structured so modules can later become separate services.</p>
+          <a href="https://github.com/your-username/mealbridge" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+
+      <article class="card project-card" data-tags="safety community">
+        <div class="bar"></div>
+        <div class="body">
+          <h3>Childcare Monitoring App</h3>
+          <p><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span></p>
+          <p>An MVP for early childhood centres that lets staff log daily activity and message parents in real time.</p>
+          <a href="https://github.com/your-username/eccde-monitoring" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:1.5rem">
+      <h2>Project summary</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>What each project solves and what it is built with</caption>
+          <thead><tr><th>Project</th><th>Problem area</th><th>Technologies</th></tr></thead>
+          <tbody>
+            <tr><td>SafeWalk Campus</td><td>Campus safety</td><td>Node.js, Express</td></tr>
+            <tr><td>MamaCheck</td><td>Maternal health</td><td>SMS</td></tr>
+            <tr><td>MealBridge</td><td>Food delivery</td><td>Node.js, Express</td></tr>
+            <tr><td>Childcare Monitoring App</td><td>Early childhood care</td><td>React, TypeScript, Node.js, PostgreSQL</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Agbeble Tony. Built with HTML, CSS and JavaScript.</p>
+      <p><a href="contact.html">Get in touch</a></p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 
 const form = document.getElementById("contactForm");
 const successBox = document.getElementById("formSuccess");
+const msgCount = document.getElementById("msgCount");
 
 const fields = {
   name: document.getElementById("name"),
@@ -26,11 +27,13 @@ function isDigitsOnly(value) {
 function showError(field, message) {
   document.getElementById(field.id + "Error").textContent = message;
   field.classList.add("invalid");
+  field.setAttribute("aria-invalid", "true");
 }
 
 function clearError(field) {
   document.getElementById(field.id + "Error").textContent = "";
   field.classList.remove("invalid");
+  field.removeAttribute("aria-invalid");
 }
 
 function validateField(key) {
@@ -43,11 +46,21 @@ function validateField(key) {
     return false;
   }
   if (key === "email" && !isValidEmail(value)) {
-    showError(field, "Please enter a valid email address (e.g. name@example.com).");
+    showError(field, "Enter a valid email address, for example name@example.com.");
     return false;
   }
-  if (key === "phone" && !isDigitsOnly(value)) {
-    showError(field, "Phone number must contain digits only.");
+  if (key === "phone") {
+    if (!isDigitsOnly(value)) {
+      showError(field, "Use digits only, with no spaces or symbols.");
+      return false;
+    }
+    if (value.trim().length < 10 || value.trim().length > 14) {
+      showError(field, "Enter a phone number between 10 and 14 digits.");
+      return false;
+    }
+  }
+  if (key === "message" && value.trim().length < 10) {
+    showError(field, "Write at least 10 characters so I know how to help.");
     return false;
   }
   return true;
@@ -58,19 +71,28 @@ Object.keys(fields).forEach(function (key) {
   fields[key].addEventListener("blur", function () { validateField(key); });
 });
 
+// Live character count
+fields.message.addEventListener("input", function () {
+  msgCount.textContent = fields.message.value.length;
+});
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   successBox.style.display = "none";
 
-  let allValid = true;
+  let firstInvalid = null;
   Object.keys(fields).forEach(function (key) {
-    if (!validateField(key)) allValid = false;
+    if (!validateField(key) && !firstInvalid) firstInvalid = fields[key];
   });
 
-  if (allValid) {
-    successBox.textContent =
-      "Thank you, " + fields.name.value.trim() + "! Your message has been sent successfully.";
-    successBox.style.display = "block";
-    form.reset();
+  if (firstInvalid) {
+    firstInvalid.focus();
+    return;
   }
+
+  successBox.textContent =
+    "Thank you, " + fields.name.value.trim() + ". Your message has been sent.";
+  successBox.style.display = "block";
+  form.reset();
+  msgCount.textContent = "0";
 });

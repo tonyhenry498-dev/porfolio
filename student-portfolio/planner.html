@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Planner | Agbeble Tony</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="logo">Agbeble Tony</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-head">
+      <h1>Academic planner</h1>
+      <p>Add assignments, study sessions and deadlines. Tasks are saved in this browser.</p>
+    </div>
+
+    <section class="card">
+      <form id="taskForm" class="planner-form" novalidate>
+        <input type="text" id="taskInput" placeholder="e.g. Submit COS 106 term project" aria-label="Task description">
+        <input type="date" id="dateInput" aria-label="Due date">
+        <button type="submit" class="btn">Add task</button>
+      </form>
+      <span class="error" id="taskError" role="alert"></span>
+
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+      <div class="task-stats">
+        <span>Total: <span id="totalCount">0</span></span>
+        <span>Completed: <span id="doneCount">0</span></span>
+        <span>Pending: <span id="pendingCount">0</span></span>
+        <span>Overdue: <span id="overdueCount">0</span></span>
+      </div>
+
+      <div class="toolbar">
+        <div class="chips" role="group" aria-label="Filter tasks" style="margin:0">
+          <button class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button class="chip" data-filter="pending" aria-pressed="false">Pending</button>
+          <button class="chip" data-filter="done" aria-pressed="false">Completed</button>
+        </div>
+        <button type="button" class="delete-btn" id="clearDone">Clear completed</button>
+      </div>
+
+      <ul class="task-list" id="taskList"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Agbeble Tony. Built with HTML, CSS and JavaScript.</p>
+      <p><a href="contact.html">Get in touch</a></p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// planner.js - Academic Planner: add, complete, delete tasks (saved in localStorage)
+// planner.js - Academic Planner: add, complete, delete, filter tasks (saved in localStorage)
 
 const STORAGE_KEY = "academicPlannerTasks";
 
@@ -10,9 +10,14 @@ const taskListEl = document.getElementById("taskList");
 const totalEl = document.getElementById("totalCount");
 const doneEl = document.getElementById("doneCount");
 const pendingEl = document.getElementById("pendingCount");
+const overdueEl = document.getElementById("overdueCount");
+const progressBar = document.getElementById("progressBar");
+const clearDoneBtn = document.getElementById("clearDone");
+const filterChips = document.querySelectorAll(".chip");
 
 // Array of task objects: { id, text, due, completed }
 let tasks = loadTasks();
+let filter = "all";
 
 function loadTasks() {
   try {
@@ -31,13 +36,19 @@ function saveTasks() {
   }
 }
 
+function todayISO() {
+  const d = new Date();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return d.getFullYear() + "-" + m + "-" + day;
+}
+
+function isOverdue(task) {
+  return !task.completed && task.due && task.due < todayISO();
+}
+
 function addTask(text, due) {
-  tasks.push({
-    id: Date.now(),
-    text: text,
-    due: due,
-    completed: false,
-  });
+  tasks.push({ id: Date.now(), text: text, due: due, completed: false });
   saveTasks();
   renderTasks();
 }
@@ -51,9 +62,7 @@ function toggleTask(id) {
 }
 
 function deleteTask(id) {
-  tasks = tasks.filter(function (t) {
-    return t.id !== id;
-  });
+  tasks = tasks.filter(function (t) { return t.id !== id; });
   saveTasks();
   renderTasks();
 }
@@ -63,39 +72,62 @@ function updateStats() {
   totalEl.textContent = tasks.length;
   doneEl.textContent = done;
   pendingEl.textContent = tasks.length - done;
+  overdueEl.textContent = tasks.filter(isOverdue).length;
+  progressBar.style.width = (tasks.length ? Math.round((done / tasks.length) * 100) : 0) + "%";
+  clearDoneBtn.disabled = done === 0;
+}
+
+function visibleTasks() {
+  return tasks
+    .filter(function (t) {
+      if (filter === "pending") return !t.completed;
+      if (filter === "done") return t.completed;
+      return true;
+    })
+    .sort(function (a, b) {
+      // Earliest due date first; tasks without a date go last
+      if (!a.due && !b.due) return 0;
+      if (!a.due) return 1;
+      if (!b.due) return -1;
+      return a.due.localeCompare(b.due);
+    });
 }
 
 function renderTasks() {
   taskListEl.innerHTML = "";
+  const list = visibleTasks();
 
-  if (tasks.length === 0) {
+  if (list.length === 0) {
     const empty = document.createElement("li");
     empty.className = "empty-msg";
-    empty.textContent = "No tasks yet. Add your first academic task above!";
+    empty.textContent = tasks.length === 0
+      ? "No tasks yet. Add your first task above."
+      : "Nothing in this view. Try another filter.";
     taskListEl.appendChild(empty);
     updateStats();
     return;
   }
 
-  tasks.forEach(function (task) {
+  list.forEach(function (task) {
     const li = document.createElement("li");
-    li.className = "task-item" + (task.completed ? " completed" : "");
+    li.className = "task-item" + (task.completed ? " completed" : "") + (isOverdue(task) ? " overdue" : "");
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.completed;
-    checkbox.setAttribute("aria-label", "Mark task as completed");
+    checkbox.setAttribute("aria-label", "Mark \"" + task.text + "\" as completed");
     checkbox.addEventListener("change", function () { toggleTask(task.id); });
 
     const info = document.createElement("div");
     info.className = "task-text";
     const title = document.createElement("div");
+    title.className = "task-title";
     title.textContent = task.text; // textContent prevents HTML injection
     info.appendChild(title);
     if (task.due) {
       const date = document.createElement("div");
       date.className = "task-date";
-      date.textContent = "Due: " + task.due;
+      date.textContent = (isOverdue(task) ? "Overdue: " : "Due: ") + task.due;
       info.appendChild(date);
     }
 
@@ -103,6 +135,7 @@ function renderTasks() {
     del.className = "delete-btn";
     del.type = "button";
     del.textContent = "Delete";
+    del.setAttribute("aria-label", "Delete \"" + task.text + "\"");
     del.addEventListener("click", function () { deleteTask(task.id); });
 
     li.appendChild(checkbox);
@@ -119,8 +152,9 @@ taskForm.addEventListener("submit", function (event) {
   const text = taskInput.value.trim();
 
   if (text === "") {
-    taskError.textContent = "Please enter a task before adding.";
+    taskError.textContent = "Enter a task description before adding.";
     taskInput.classList.add("invalid");
+    taskInput.focus();
     return;
   }
 
@@ -129,6 +163,20 @@ taskForm.addEventListener("submit", function (event) {
   addTask(text, dateInput.value);
   taskForm.reset();
   taskInput.focus();
+});
+
+filterChips.forEach(function (chip) {
+  chip.addEventListener("click", function () {
+    filter = chip.dataset.filter;
+    filterChips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip); });
+    renderTasks();
+  });
+});
+
+clearDoneBtn.addEventListener("click", function () {
+  tasks = tasks.filter(function (t) { return !t.completed; });
+  saveTasks();
+  renderTasks();
 });
 
 renderTasks();

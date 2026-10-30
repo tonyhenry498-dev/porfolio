@@ -3,75 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal academic portfolio of a university student.">
-  <title>Home | Student Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Agbeble Tony is a cyber security student and aspiring web developer building safety and health tools for Nigerian communities.">
+  <title>Agbeble Tony | Cyber Security Student &amp; Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/student-portfolio/css/style.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav-bar" aria-label="Main navigation">
-      <a href="index.html" class="logo">Your Name</a>
+      <a href="index.html" class="logo">Agbeble Tony</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="planner.html">Planner</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/student-portfolio/index.html">Home</a></li>
+        <li><a href="/student-portfolio/about.html">About</a></li>
+        <li><a href="/student-portfolio/projects.html">Projects</a></li>
+        <li><a href="/student-portfolio/planner.html">Planner</a></li>
+        <li><a href="/student-portfolio/contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main">
+    <section class="wrap hero">
       <div>
-        <p id="greeting" class="tagline">Welcome!</p>
-        <h1>Hi, I'm Your Name</h1>
-        <p class="tagline">Computer Science Student &bull; Aspiring Web Developer</p>
-        <p>
-          Welcome to my academic portfolio. Here you can learn about my background,
-          explore the projects I have built, and use my simple academic planner to stay organised.
-        </p>
-        <a href="projects.html" class="btn">View My Projects</a>
-        <a href="contact.html" class="btn secondary">Contact Me</a>
+        <p id="greeting">Welcome!</p>
+        <h1>Software that shows up when it matters.</h1>
+        <p class="lead">I'm Agbeble Tony, a cyber security student and aspiring web developer. I build safety and health tools for Nigerian communities.</p>
+        <a href="projects.html" class="btn">View my projects</a>
+        <a href="contact.html" class="btn ghost">Contact me</a>
       </div>
-      <img src="images/profile.svg" alt="Photograph of Your Name">
+      <figure class="radar">
+        <div class="radar-map" aria-hidden="true"><span class="ping"></span></div>
+        <ol class="flow">
+          <li>A student sends an alert from their phone</li>
+          <li>Their live location reaches campus security</li>
+          <li>A responder is on the way</li>
+        </ol>
+        <figcaption>How a SafeWalk Campus alert travels. Illustration.</figcaption>
+      </figure>
     </section>
 
-    <section class="card">
-      <h2>Brief Biography</h2>
-      <p>
-        I am a 200-level Computer Science student passionate about building useful,
-        accessible technology. I enjoy solving problems with code and learning how
-        the web works, from the structure of HTML to the logic of JavaScript.
-      </p>
-      <p>
-        Outside the classroom I take part in coding clubs, work on personal projects,
-        and look for opportunities to grow as a developer. Replace this text with your own story.
-      </p>
+    <section class="wrap section">
+      <h2>Selected work</h2>
+      <a class="work-row" href="projects.html">
+        <h3>SafeWalk Campus</h3>
+        <p>A real-time emergency alert and location-sharing system for Nigerian campuses.</p>
+        <span class="tag">Node.js</span>
+      </a>
+      <a class="work-row" href="projects.html">
+        <h3>MamaCheck</h3>
+        <p>An SMS monitoring platform that supports maternal health in Nigeria.</p>
+        <span class="tag">Health</span>
+      </a>
+      <a class="work-row" href="projects.html">
+        <h3>MealBridge</h3>
+        <p>A community-driven food delivery backend designed to grow into microservices.</p>
+        <span class="tag">Express</span>
+      </a>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <h3>About Me</h3>
-        <p>My education, skills and interests.</p>
-        <a href="about.html">Read more &rarr;</a>
-      </article>
-      <article class="card">
-        <h3>Projects</h3>
-        <p>A selection of things I have built.</p>
-        <a href="projects.html">See projects &rarr;</a>
-      </article>
-      <article class="card">
-        <h3>Academic Planner</h3>
-        <p>Track assignments and deadlines.</p>
-        <a href="planner.html">Open planner &rarr;</a>
-      </article>
+    <section class="wrap section">
+      <h2>Brief biography</h2>
+      <p>I study cyber security and teach myself web development alongside it. I like problems where a small, reliable piece of software changes what a person can do: getting help faster, tracking a pregnancy, or getting a meal.</p>
+      <p>Outside class I read, join coding clubs and build personal projects. <a href="about.html">Read more about my background.</a></p>
+    </section>
+
+    <section class="wrap section">
+      <div class="band">
+        <h2>Need to plan your semester?</h2>
+        <a href="planner.html" class="btn">Open the planner</a>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year">2026</span> Your Name. Built with HTML, CSS and JavaScript.</p>
+    <div class="wrap">
+      <p>&copy; <span id="year">2026</span> Agbeble Tony. Built with HTML, CSS and JavaScript.</p>
+      <p><a href="contact.html">Get in touch</a></p>
+    </div>
   </footer>
   <script src="js/main.js"></script>
 </body>
